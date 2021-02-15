@@ -1,8 +1,6 @@
 const fs = require('fs');
-/*const text = fs.readFileSync('script.js', 'utf-8');
-console.log(text);*/
-
 const http = require('http');
+
 const server = http.createServer((req, res) => {
     const body = req.url === '/'
     ? fs.readFileSync('./public/index.html', 'utf-8')

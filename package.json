@@ -1,0 +1,20 @@
+{
+  "name": "kirtim_webserver",
+  "version": "1.0.0",
+  "description": "Kir Tim webserver",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nevroid/js_advanced.git"
+  },
+  "author": "Kirill Timoshin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nevroid/js_advanced/issues"
+  },
+  "homepage": "https://github.com/Nevroid/js_advanced#readme"
+}

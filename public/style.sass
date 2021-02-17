@@ -1,0 +1,880 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap')
+@import vars
+@import mixins
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+body
+    font-family: Lato
+
+a
+    text-decoration: none
+
+.center
+    padding-left: calc(50% - 570px)
+    padding-right: calc(50% - 570px)
+
+.header
+    background-color: #222
+    height: 75px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    position: relative
+    &__right
+        display: flex
+        align-items: center
+
+    &__search
+        margin-left: 41px
+
+    &__account
+        margin-left: 34px
+        margin-right: 34px
+    &__temp-links_nav
+        display: none
+
+#switch
+    visibility: hidden
+    position: absolute
+    top: -99999px
+    &:checked ~ .drop
+        top: -$menuHeigh
+.drop
+    background: #FFFFFF
+    box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21)
+    padding: 34px 37px
+    position: absolute
+    top: 75px
+    right: 0
+    width: 232px
+    height: $menuHeigh
+    transition: top .25s
+    z-index: 10
+    &__close
+        position: absolute
+        top: 16px
+        right: 16px
+        &__img
+            width: 12px
+            height: 12px
+            fill: #6F6E6E
+            transition: fill 0.2s
+            &:hover
+                fill: $highlighter-color
+
+    &__name
+        font-style: normal
+        font-weight: bold
+        font-size: 14px
+        line-height: 17px
+        color: #000000
+    &__category
+        margin-top: 20px
+        &__heading
+            font-family: Lato
+            font-style: normal
+            font-weight: normal
+            font-size: 14px
+            line-height: 17px
+            color: $highlighter-color
+            &:hover
+                text-decoration: underline
+
+        &__ul
+            list-style-type: none
+            padding-left: 20px
+            margin-top: 12px
+        &__link
+            font-style: normal
+            font-weight: normal
+            font-size: 14px
+            line-height: 17px
+            color: #6F6E6E
+            display: block
+            margin-bottom: 11px
+            +hover-color()
+
+            &:hover
+                color: $highlighter-color
+
+.promo
+    background: rgba(113, 103, 105, 0.08)
+    padding-left: calc(50% - 800px)
+    padding-right: calc(50% - 800px)
+    display: flex
+
+    &__left
+        width: 50%
+
+    &__img
+        width: 100%
+
+    &__right
+        width: 50%
+        background: #F1E4E6
+        display: flex
+        align-items: center
+        padding-left: 64px
+
+    &__slogan
+        display: flex
+
+    &__content
+        margin-left: 16px
+
+    &__heading
+
+        font-style: normal
+        font-weight: 900
+        font-size: 48px
+        line-height: 58px
+        color: #222222
+
+    &__text
+
+        font-style: normal
+        font-weight: 700
+        font-size: 32px
+        line-height: 58px
+        color: #222222
+
+.text__color__pink
+    color: $highlighter-color
+
+catalog-box
+    display: flex
+    flood-color:
+
+.catalog
+    display: flex
+    justify-content: space-between
+    padding-top: 64px
+    z-index: 1
+
+    &__item
+        position: relative
+
+    &__item:not(:last-child)
+        margin-right: 30px
+
+    &__content
+        position: absolute
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+
+    &__img
+        width: 100%
+
+    &__text
+
+        font-size: 16px
+        color: #FFFFFF
+
+    &__heading
+
+        font-size: 24px
+        color: $highlighter-color
+
+    &-big
+        margin-top: 30px
+
+    &-big__img
+        width: 100%
+.horiz-item
+    background-image: url(img/catalog_big.png)
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center bottom
+
+.product-box
+
+    &__heading
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        font-style: normal
+        font-weight: normal
+        font-size: 30px
+        line-height: 36px
+        color: #222222
+        padding-top: 97px
+
+    &__text
+        text-align: center
+        margin-top: 6px
+        font-size: 14px
+        color: #9F9F9F
+
+.product
+    width: 360px
+    background: #F8F8F8
+    position: relative
+    +smooth-hover()
+
+    &:hover .product__img
+        filter: brightness(50%)
+
+    &:hover .product__add
+        display: flex
+
+    &_mb
+        margin-bottom: 30px
+    &__img
+        width: 100%
+
+    &-content
+        padding-top: 48px
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+
+    &__info
+        padding: 24px 16px 20px
+
+    &__name
+
+        color: #000000
+
+    &__text
+        margin-top: 12px
+        margin-bottom: 18px
+
+        font-size: 14px
+        color: #5D5D5D
+
+    &__price
+
+        font-size: 16px
+        color: $highlighter-color
+
+    &__add
+        position: absolute
+        top: 188px
+        left: 111px
+        width: 139px
+        height: 44px
+        border: 1px solid white
+        align-items: center
+        justify-content: center
+        +smooth-hover()
+
+        font-size: 14px
+        color: white
+        display: none
+
+    &__add:hover
+        box-shadow: 0 0 5px #fff
+
+.poduct-box__footer
+    display: flex
+    flex-direction: column
+    align-items: center
+
+.product-box_button
+    border: 1px solid #F26376
+    width: 212px
+    height: 48px
+    line-height: 48px
+    margin-top: 48px
+    background: none
+    font-size: 16px
+    color: #F26376
+    text-align: center
+    +smooth-hover()
+
+    &:hover
+        background: $highlighter-color
+        color: white
+
+.advantage
+    background-color: #222224
+    height: 340px
+    margin-top: 95px
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    &-content
+        display: flex
+        justify-content: center
+        align-items: center
+
+    &-item
+        width: 360px
+        display: flex
+        flex-direction: column
+        align-items: center
+        text-align: center
+
+    &__logo
+        fill: $highlighter-color
+
+    &-heading
+        padding-top: 28px
+        font-style: normal
+        font-weight: normal
+        font-size: 20px
+        color: #FBFBFB
+
+    &-text
+        padding-top: 16px
+        font-size: 14px
+        font-style: normal
+        color: #FBFBFB
+
+.invite
+    height: 450px
+    background-color: #f4f4f4
+    background-image: url(img/invite_bckgr.png)
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center bottom
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    &__left
+        width: 360px
+        text-align: center
+
+    &__msg
+        padding-top: 30px
+        font-size: 20px
+        line-height: 24px
+        text-align: center
+        color: #222224
+
+.text-italic
+    font-style: italic
+
+.invite__right
+    text-align: center
+
+.invite__input
+
+.invite__button_heading
+    font-style: normal
+    font-weight: bold
+    font-size: 24px
+    text-align: center
+    color: #222224
+
+    &__text
+        font-style: normal
+        font-weight: normal
+        font-size: 18px
+        text-align: center
+
+.footer
+    background-color: #222224
+    height: 80px
+    display: flex
+    align-items: center
+
+    &__content
+        width: 100%
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+    &__right
+        display: flex
+
+    &__text
+        color: #FBFBFB
+
+.gap
+    margin-left: 30px
+.logo__box
+    width: 32px
+    height: 32px
+    background-color: #fff
+    display: flex
+    align-items: center
+    justify-content: center
+    +smooth-hover()
+
+    &:not(:last-child)
+        margin-right: 7px
+
+    &:hover
+        background-color: $highlighter-color
+        fill: white
+
+.email-request
+    display: flex
+    margin-top: 32px
+
+.subscribe__input
+    height: 49px
+    width: 256px
+    padding: 6px 22px
+    background: #E1E1E1
+    border-radius: 24.5px 0 0 24.5px
+    border-style: none
+
+.subscribe__button
+    height: 49px
+    width: 100px
+    background: $highlighter-color
+    border-radius: 0 24.5px 24.5px 0
+    border-style: none
+    font-style: normal
+    font-weight: normal
+    font-size: 14px
+    line-height: 49px
+    text-align: center
+    color: #FFFFFF
+    +smooth-hover()
+    &:hover
+        background: $highlighter-color - #111
+
+/* CATALOG */
+
+.page__description
+    height: 148px
+    background: #F8F3F4
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+.page__desciption__heading
+    font-style: normal
+    font-weight: normal
+    font-size: 24px
+    color: $highlighter-color
+
+.page__description__nav
+    display: flex
+
+.page__description__link
+    font-style: normal
+    font-weight: normal
+    font-size: 14px
+    line-height: 17px
+    color: #636363
+    +smooth-hover()
+
+    &:last-child
+        font-weight: bold
+        color: $highlighter-color
+
+    &:not(:last-child)::after
+        content: "/"
+        padding-left: 8px
+        padding-right: 8px
+
+    &:hover
+        color: $highlighter-color
+
+.sort
+    padding-top: 39px
+    padding-bottom: 16px
+    display: flex
+    position: relative
+
+    &__filter
+        position: absolute
+        padding-top: 16px
+        padding-left: 16px
+
+    &__param
+        margin-left: calc(33.33333% + 15px)
+        display: flex
+        padding-top: 16px
+        font-style: normal
+        font-weight: normal
+        font-size: 10px
+        line-height: 12px
+        color: #6F6E6E
+    &__filter_active:hover
+        width: 360px
+        background: #FFFFFF
+        box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21)
+        padding: 16px
+        position: absolute
+        z-index: 1
+
+    &__filter_active:hover path
+        fill: $highlighter-color
+
+    &__items
+        display: none
+
+    &__filter_active:hover .sort__items
+        display: block
+
+    &__ul
+        list-style-type: none
+
+    &__open
+        position: relative
+
+    &__size
+        background: #FFFFFF
+        box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21)
+        padding: 8px 30px 8px 8px
+        display: flex
+        flex-direction: column
+        position: absolute
+        top: 24px
+        left: 8px
+        z-index: 1
+
+.product-box__footer__nav
+    display: flex
+    width: 280px
+    height: 44px
+    border: 1px solid #C4C4C4
+    border-radius: 4px
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
+    align-items: center
+    justify-content: space-around
+    font-style: normal
+    font-weight: 300
+    font-size: 16px
+    text-decoration: none
+
+    &-link
+        font-weight: 300
+        font-size: 16px
+        color: #C4C4C4
+
+    &-link:hover
+        color: $highlighter-color
+
+/* PRODUCT */
+
+.product-item
+    background: #F7F7F7
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+.item_pic
+    height: 776px
+
+.product_description-box
+    margin-top: -32px
+    display: flex
+    flex-direction: column
+    height: 600px
+    background: white
+    align-items: center
+    border: 1px solid #EAEAEA
+
+.section__name
+    margin-top: 64px
+    font-style: normal
+    font-weight: 300
+    font-size: 14px
+    color: $highlighter-color
+
+.description-box__devider
+    margin-top: 12px
+
+.product_description__heading
+    margin-top: 12px
+    font-weight: 300
+    font-size: 18px
+    color: #4D4D4D
+
+.product_description__text
+    margin-top: 48px
+    width: 555px
+    font-weight: 300
+    font-size: 14px
+    text-align: center
+    color: #5E5E5E
+
+.product_description__price
+    margin-top: 32px
+    font-weight: 300
+    font-size: 24px
+    line-height: 29px
+    color: #EF5B70
+
+.product_description__hr
+    margin-top: 64px
+    border: 0.5px solid #EAEAEA
+    width: 642px
+
+.product__param
+    margin: 0
+    margin-top: 64px
+
+.product__cart_button
+    margin-top: 48px
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 212px
+    height: 48px
+    border: 1px #FF6A6A solid
+    color: #FF6A6A
+    font-style: normal
+    font-weight: normal
+    font-size: 16px
+    fill: #FF6A6A
+    +smooth-hover()
+    &-svg
+        margin-right: 22px
+    &:hover
+        color: white
+        background: #FF6A6A
+        fill: white
+
+    //CART.HTML
+.cart__content
+    display: flex
+    margin-top: 96px
+    margin-bottom: 128px
+    &__list
+        display: flex
+        flex-direction: column
+    &__customer
+        width: 360px
+        margin-left: 128px
+    &__adress
+
+    &__bill
+        width: 360px
+        height: 214px
+        margin-top: 56px
+        background: #F5F3F3
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding: 42px
+        &-subtotal
+            width: 100%
+            text-align: right
+            font-size: 11px
+            line-height: 13px
+            color: #4A4A4A
+        &-summary
+            width: 100%
+            text-align: right
+            margin-top: 12px
+            font-weight: 300
+            font-size: 16px
+            line-height: 19px
+            color: #222222
+        &-line
+            height: 1px
+            width: 275px
+            background: #E2E2E2
+            margin-top: 21px
+            margin-bottom: 17px
+            padding: 1px
+        &__button
+            border: 1px solid #F26376
+            width: 273px
+            height: 50px
+            background: none
+            font-size: 16px
+            line-height: 50px
+            text-align: center
+            color: #F26376
+            +smooth-hover()
+
+            &:hover
+                background: $highlighter-color
+                color: white
+
+.product
+    &__cart
+        &-img_xs
+            display: none
+        &-description
+            display: flex
+            background: white
+            width: 652px
+            height: 306px
+            filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13))
+            position: relative
+            &:not(:first-child)
+                margin-top: 40px
+            &__close
+                position: absolute
+                top: 28px
+                right: 22px
+                z-index: 0
+
+            &__text
+                width: 262px
+                margin-top: 22px
+                margin-left: 32px
+            &-title
+                font-size: 24px
+                line-height: 29px
+                color: #222222
+                margin-bottom: 42px
+            &-info
+                font-size: 22px
+                line-height: 26px
+                color: #575757
+            &-info:not(:first-child)
+                margin-top: 6px
+
+.price_color
+    color: $alter-color
+.input_quantity
+    width: 44px
+    margin-left: 24px
+    text-align: center
+
+.cart__control
+    margin-top: 72px
+    display: flex
+    justify-content: space-between
+    &__button
+        border: 1px solid #A4A4A4
+        width: 235px
+        height: 50px
+        font-weight: 300
+        font-size: 14px
+        line-height: 50px
+        color: #000000
+        text-align: center
+        +smooth-hover()
+        &:hover
+            background: #A4A4A4 + #111
+            color: white
+
+.cart__content__adress
+    display: flex
+    flex-direction: column
+.adress__input
+    width: 360px
+    height: 45px
+    font-weight: 300
+    font-size: 13px
+    line-height: 45px
+    margin-top: 20px
+    padding-left: 16px
+
+.button
+    &_small
+        border: 1px solid #A4A4A4
+        width: 100px
+        height: 35px
+        font-weight: 300
+        font-size: 11px
+        line-height: 35px
+        color: #4A4A4A
+        text-align: center
+        margin-top: 23px
+        +smooth-hover()
+        &:hover
+            background: #A4A4A4 + #111
+            color: white
+
+    //Registration.html
+.registration__content
+    display: flex
+    margin-top: 64px
+    margin-bottom: 96px
+.registration__form
+    width: 360px
+    display: flex
+    flex-direction: column
+    &__header
+        font-weight: 300
+        font-size: 16px
+        line-height: 19px
+        color: #222222
+    &__input
+        height: 45px
+        padding-left: 17px
+        margin-top: 20px
+        border: 1px solid #A4A4A4
+
+    &-gender
+        display: flex
+        width: 132px
+        align-items: center
+        margin-top: 32px
+        margin-bottom: 32px
+
+        &__text
+            font-weight: 300
+            font-size: 11px
+            line-height: 13px
+            color: #000000
+            margin-left: 10px
+            margin-right: 20px
+    &__button
+        border: 1px solid #F26376
+        width: 168px
+        height: 50px
+        background: none
+        font-size: 16px
+        color: #F26376
+        margin-top: 40px
+        line-height: 50px
+        text-align: center
+        +smooth-hover()
+        &__arrow
+            margin-left: 20px
+            fill: #F26376
+        &:hover
+            background: $highlighter-color
+            color: white
+
+        &:hover .registration__form__button__arrow
+            fill: white
+
+.password-reminder
+    width: 359px
+    height: 32px
+    font-weight: 300
+    font-size: 13px
+    line-height: 16px
+    color: #B1B1B1
+    margin-top: 15px
+
+.registration__perks
+    width: 652px
+    display: flex
+    flex-direction: column
+    margin-left: 128px
+    &-header
+        font-weight: 300
+        font-size: 24px
+        line-height: 29px
+        color: #000000
+        margin-bottom: 22px
+    &-text
+        font-weight: 300
+        font-size: 24px
+        line-height: 29px
+        color: #000000
+        margin-bottom: 21px
+    &-list
+        margin-left: 32px
+        font-weight: 300
+        font-size: 24px
+        line-height: 29px
+        color: #000000
+
+        &-unit
+            list-style-image: url(img/check.svg)
+            margin-bottom: 16px
+            padding-left: 23px
+            height: au
+
+@import media786
+@import media375

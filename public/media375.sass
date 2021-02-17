@@ -1,0 +1,149 @@
+@import vars
+@media (max-width: 376px)
+    .center
+        padding-left: calc(50% - 171.5px)
+        padding-right: calc(50% - 171.5px)
+    .header
+        &__account
+            margin: 0
+        &__temp-links
+            display: none
+        &__temp-links_nav
+            display: block
+            fill: $highlighter-color
+            display: flex
+            padding: 16px
+            justify-content: space-around
+
+    .drop
+        width: 100%
+    .promo
+        &__left
+            display: none
+        &__right
+            height: 364px
+            width: 100%
+            padding: 0
+        &__slogan
+            margin: auto
+            text-align: center
+        &__heading
+            font-size: 38px
+            line-height: 46px
+        &__text
+            font-size: 20px
+            line-height: 24px
+    .page
+        &__description
+            flex-direction: column
+            justify-content: space-around
+    .sort__text
+        &_temp
+            display: none
+        &_svg
+            width: 37px
+            height: 25px
+    .item_pic
+        height: auto
+        &__image
+            width: 100%
+    .product
+        &_description
+            &-box
+                border: none
+                margin: 0
+            &__text
+                margin-top: 32px
+                width: 100%
+            &__hr
+                width: 175px
+                margin-top: 32px
+        &__param
+            margin-top: 48px
+        &__cart
+            &_button
+                margin-top: 64px
+    .product
+        &__cart
+            &-img_xs
+                display: block
+            &-img_s
+                display: none
+            &-description
+                width: 358px
+                height: 188px
+                &-title
+                    font-size: 16px
+                    line-height: 19px
+                    margin-bottom: 20px
+                &__text
+                    width: 144px
+                    margin-top: 13px
+                    margin-left: 17px
+                &-info
+                    font-size: 14px
+                    line-height: 17px
+                    color: #575757
+                &__close
+                    width: 10px
+                    height: 10px
+                    top: 17px
+                    right: 12px
+    .input_quantity
+        width: 24px
+        margin-left: 8px
+    .cart
+        &__control
+            width: 360px
+            margin-top: 30px
+            &__button
+                width: 175px
+                line-height: 33px
+                font-size: 12px
+                height: 33px
+        &__content
+            margin-bottom: 96px
+            &__customer
+                margin-top: 48px
+                flex-direction: column
+            &__bill
+                width: auto
+    .adress__input
+        width: auto
+
+    .catalog
+        flex-direction: column
+        &__content
+
+        &__item:not(:last-child)
+            margin: 0 0 32px 0
+        &__item:last-child
+            margin: 0 0 32px 0
+
+        &-big
+            margin: 0
+            &__img
+                display: none
+    .horiz-item
+        height: 111px
+    .product
+        &-box
+            &__heading
+                padding-top: 64px
+    .registration
+        &__form
+            width: 100%
+        &__content
+            flex-direction: column
+        &__perks
+            margin-left: 0
+            margin-top: 40px
+            width: 100%
+    .footer
+        height: 144px
+
+        &__content
+            flex-flow: column-reverse
+        &__right
+            margin-bottom: 40px
+            margin-top: 40px

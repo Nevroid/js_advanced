@@ -1,0 +1,85 @@
+@media (max-width: 769px) {
+  .center {
+    padding-left: calc(50% - 368px);
+    padding-right: calc(50% - 368px);
+  }
+  .catalog__product_last {
+    display: none;
+  }
+  .cart__content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 59px;
+  }
+  .cart__content__list {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .cart__content__customer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 64px;
+  }
+  .cart__content__bill {
+    margin-top: 39px;
+  }
+  .cart__control {
+    margin-top: 62px;
+    width: 508px;
+  }
+  .product__cart-description {
+    width: 734px;
+  }
+  .registration__content {
+    margin-top: 40px;
+  }
+  .registration__perks {
+    margin-left: 20px;
+  }
+  .registration__perks-header {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .registration__perks-text {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .registration__perks-list {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .advantage {
+    height: 610px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .advantage-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .advantage-item:not(:last-child) {
+    margin-bottom: 28px;
+  }
+  .invite {
+    height: 694px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-top: 64px;
+    padding-bottom: 140px;
+  }
+}
+/*# sourceMappingURL=media786.css.map */

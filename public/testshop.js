@@ -83,7 +83,7 @@ class Catalog {
 
 
     fetchGoods() {
-        const dataUrl = 'http://localhost:8181/data/items.json' || './data/items.json'
+        const dataUrl = 'http://localhost:8181/data/items.json' || './public/data/items.json'
         return fetch(dataUrl)
     }
 
@@ -153,7 +153,7 @@ class ExtendedCatalog {
 
     fetchGoods(i) {
         if (typeof i !== 'undefined') {
-            const dataUrl = `http://localhost:8181/data/items${i}.json` || `./data/items${i}.json`
+            const dataUrl = `http://localhost:8181/data/items${i}.json` || `./public/data/items${i}.json`
             return fetch(dataUrl)
                 .catch(() => {
                     console.log('UnexpectedError')

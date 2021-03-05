@@ -110,9 +110,12 @@
     </section>
     <section class="registration__content center">
         <div class="registration__form">
-            <p class="registration__form__header">Your Name</p>
-            <input class="registration__form__input" type="text" placeholder="First Name">
-            <input class="registration__form__input" type="text" placeholder="Last Name">
+            <p class="registration__form__header">Personal Details</p>
+            <input class="registration__form__input" id="firstNameInput" value="" type="text" placeholder="First Name">
+            <input class="registration__form__input" id="lastNameInput" value="" type="text" placeholder="Last Name">
+            <input class="registration__form__input" id="phoneInput" value="" type="text"
+                placeholder="Your phone number">
+
             <div class="registration__form-gender">
                 <input type="radio" name="gender" value="male">
                 <p class="registration__form-gender__text">Male</p>
@@ -120,8 +123,8 @@
                 <p class="registration__form-gender__text">Female</p>
             </div>
             <p class="registration__form__header">Login Details</p>
-            <input class="registration__form__input" type="email" placeholder="Email">
-            <input class="registration__form__input" type="password" placeholder="Password">
+            <input class="registration__form__input" id="emailInput" value="" type="text" placeholder="Email">
+            <input class="registration__form__input" id="pwdInput" value="" type="password" placeholder="Password">
             <p class="password-reminder">Please use 8 or more characters, with at least 1 number and a mixture of
                 uppercase and lowercase letters</p>
             <a href="#" class="registration__form__button">JOIN NOW <span class="registration__form__button__arrow"><svg
@@ -198,7 +201,7 @@
 
         </div>
     </footer>
-
+    <script src="JS/input_varification.js"></script>
 </body>
 
 </html>

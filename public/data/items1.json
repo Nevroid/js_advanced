@@ -1,0 +1,51 @@
+{
+    "data": [{
+        "title": "T-Shirt-2",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+        "price": 88,
+        "img": "./img/product_000.jpg",
+        "page": "",
+        "id": 7
+    },
+    {
+        "title": "Jeans-2",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+        "price": 125,
+        "img": "./img/product_001.jpg",
+        "page": "",
+        "id": 8
+    },
+    {
+        "title": "Sweater-2",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+        "price": 75,
+        "img": "./img/product_003.jpg",
+        "page": "",
+        "id": 9
+    },
+    {
+        "title": "Coat-2",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+        "price": 200,
+        "img": "./img/product_004.jpg",
+        "page": "",
+        "id": 10
+    },
+    {
+        "title": "Socks-2",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+        "price": 5,
+        "img": "./img/product_005.jpg",
+        "page": "",
+        "id": 11
+    },
+    {
+        "title": "Sneakers-2",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+        "price": 50,
+        "img": "./img/product_006.jpg",
+        "page": "",
+        "id": 12
+    }
+    ]
+}

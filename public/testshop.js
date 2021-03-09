@@ -1,3 +1,4 @@
+
 class Counter {
     moreBtnCounter = 0
 
@@ -64,6 +65,7 @@ class Card {
 class Catalog {
     _items = []
 
+
     constructor(a) {
         this.fetchGoods()
             .then(response => {
@@ -125,6 +127,7 @@ class Catalog {
 
     }
 
+
 }
 
 class ExtendedCatalog {
@@ -161,6 +164,7 @@ class ExtendedCatalog {
         } else {
             console.log('UnexpectedError3')
         }
+
     }
 
     render() {
@@ -182,6 +186,7 @@ class ExtendedCatalog {
                 }
 
 
+
             })
         })
         const placeToRender = document.querySelector('.product-content')
@@ -197,6 +202,7 @@ class ExtendedCatalog {
             moreBtn.remove()
             new ExtendedCatalog(moreBtnCounter)
         })
+
 
 
     }
@@ -333,8 +339,10 @@ class CartSummary {
     }
 }
 
+
 let counter = new Counter()
 let moreBtnCounter = counter.moreBtnCounter
 let catalog = new Catalog()
 
 console.log(`moreBtnCounter value: ${moreBtnCounter}`)
+

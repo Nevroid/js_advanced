@@ -6,8 +6,17 @@
       :key="id"
       :id="id"
     />
-    <div @click="incrCounter()">
-      <MidButton :buttonText="expandButtonText" />
+
+    <CatalogItem
+      class="product_mb product"
+      v-if="getExpandCounter > 0"
+      v-for="id in getItemsOnPage"
+      :key="id"
+      :id="id"
+    />
+
+    <div @click="expandCounterIncr">
+      <MidButton v-if="getExpandCounter < 2" :buttonText="expandButtonText" />
     </div>
   </div>
 </template>
@@ -18,29 +27,32 @@ import MidButton from "./MidButton.vue";
 import { mapMutations, mapGetters, mapActions } from "vuex";
 export default {
   created() {
-    this.requestData(this.moreCounter);
+    this.requestData(this.testCnt);
   },
+  // updated() {
+  //   this.requestData(getExpandCounter);
+  // },
   components: {
     CatalogItem,
     MidButton,
   },
   methods: {
-    ...mapMutations(["setData"]),
+    ...mapMutations(["setData", "expandCounterIncr"]),
     ...mapActions(["requestData"]),
-    incrCounter() {
-      if (this.moreCounter < 2) {
-        this.moreCounter++;
-      } else {
-        this.moreCounter--;
-      }
-    },
   },
   computed: {
-    ...mapGetters(["getData", "getItemsOnPage", "getTotalCost"]),
+    ...mapGetters([
+      "getData",
+      "getItemsOnPage",
+      "getTotalCost",
+      "getExpandCounter",
+    ]),
+    testCnt() {
+      return this.getExpandCounter;
+    },
   },
   data() {
     return {
-      moreCounter: 0,
       expandButtonText: "Show More",
     };
   },

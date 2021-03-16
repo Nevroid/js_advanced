@@ -33,16 +33,23 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapMutations, mapGetters, mapActions } from "vuex";
 export default {
+  // created() {
+  //   this.requestData(this.getExpandCounter);
+  // },
+  methods: {
+    ...mapMutations(["setData", "expandCounterIncr"]),
+    ...mapActions(["requestData"]),
+  },
   computed: {
-    ...mapGetters(["getData", "getItemsOnPage"]),
+    ...mapGetters(["getData", "getItemsOnPage", "getExpandCounter"]),
     getItemData() {
       return this.getData[this.id];
     },
   },
   props: {
-    id: Number,
+    id: String,
   },
 };
 </script>

@@ -7,12 +7,15 @@ export default new Vuex.Store({
         data: {},
         itemsOnPage: [],
         itemsInCart: [],
+        expandCounter: 0,
     },
     mutations: {
         setData (state, payload){
             state.data = payload.newData
             state.itemsOnPage = Object.keys(payload.newData)
-
+        },
+        expandCounterIncr(state){
+            state.expandCounter++
         },
     },
     getters: {
@@ -21,7 +24,8 @@ export default new Vuex.Store({
         getTotalCost: state => {
             const keys = state.itemsOnPage
             return keys.reduce((result, current) => result + state.data[current].price, 0)
-        }
+        },
+        getExpandCounter: state => state.expandCounter,
     },
     actions: {
         requestData({commit}, page){

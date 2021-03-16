@@ -11,16 +11,40 @@
         :goodId="item.id"
       />
     </div>
+    <div v-if="moreCounter > 0" v-for="item in items_1">
+      <CatalogItem
+        class="product_mb product"
+        :goodTitle="item.title"
+        :goodPrice="item.price"
+        :goodDescription="item.description"
+        :goodImg="item.img"
+        :goodPage="item.page"
+        :goodId="item.id"
+      />
+    </div>
+    <div @click="incrCounter">
+      <MidButton :buttonText="expandButtonText" />
+    </div>
   </div>
 </template>
 
 <script>
 import CatalogItem from "./CatalogItem.vue";
+import MidButton from "./midButton.vue";
 export default {
   components: {
     CatalogItem,
+    MidButton,
   },
-  methods: {},
+  methods: {
+    incrCounter() {
+      if (this.moreCounter < 1) {
+        this.moreCounter++;
+      } else {
+        this.moreCounter--;
+      }
+    },
+  },
   data() {
     return {
       items_0: [
@@ -123,6 +147,8 @@ export default {
           id: 12,
         },
       ],
+      moreCounter: 0,
+      expandButtonText: "Show More",
     };
   },
 };

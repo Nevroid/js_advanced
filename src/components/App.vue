@@ -1,12 +1,18 @@
 <template>
-  <Catalog class="product-content" />
+  <div>
+    <Catalog class="product-content" />
+    <Cart class="product__usercart" />
+  </div>
 </template>
 
 <script>
-import Catalog from "./components/Catalog.vue";
+import Catalog from "./Catalog.vue";
+import Cart from "./Cart.vue";
+
 export default {
   components: {
     Catalog,
+    Cart,
   },
   data() {
     return {

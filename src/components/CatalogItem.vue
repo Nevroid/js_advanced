@@ -1,7 +1,11 @@
 <template>
   <div>
-    <a :href="goodPage"
-      ><img class="product__img" :src="goodImg" :alt="goodTitle"
+    <!-- {{ getItemData }} -->
+    <a :href="getItemData.page"
+      ><img
+        class="product__img"
+        :src="getItemData.img"
+        :alt="getItemData.title"
     /></a>
     <div class="product__add" href="#">
       <svg
@@ -19,22 +23,26 @@
       Add to Cart
     </div>
     <div class="product__info">
-      <a :href="goodPage" class="product__name">{{ goodTitle }}</a>
-      <p class="product__text">{{ goodDescription }}</p>
-      <div class="product__price">${{ goodPrice }}</div>
+      <a :href="getItemData.page" class="product__name">{{
+        getItemData.title
+      }}</a>
+      <p class="product__text">{{ getItemData.description }}</p>
+      <div class="product__price">${{ getItemData.price }}</div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
+  computed: {
+    ...mapGetters(["getData", "getItemsOnPage"]),
+    getItemData() {
+      return this.getData[this.id];
+    },
+  },
   props: {
-    goodTitle: String,
-    goodPrice: Number,
-    goodDescription: String,
-    goodImg: String,
-    goodPage: String,
-    goodId: Number,
+    id: Number,
   },
 };
 </script>

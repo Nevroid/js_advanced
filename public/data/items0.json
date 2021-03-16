@@ -1,5 +1,5 @@
 {
-    "data": [{
+    "13": {
         "title": "T-Shirt",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing.",
         "price": 88,
@@ -7,7 +7,7 @@
         "page": "",
         "id": 1
     },
-    {
+    "14": {
         "title": "Jeans",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing.",
         "price": 125,
@@ -15,7 +15,7 @@
         "page": "",
         "id": 2
     },
-    {
+    "15": {
         "title": "Sweater",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing.",
         "price": 75,
@@ -23,7 +23,7 @@
         "page": "",
         "id": 3
     },
-    {
+    "16": {
         "title": "Coat",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing.",
         "price": 200,
@@ -31,7 +31,7 @@
         "page": "",
         "id": 4
     },
-    {
+    "17": {
         "title": "Socks",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing.",
         "price": 5,
@@ -39,7 +39,7 @@
         "page": "",
         "id": 5
     },
-    {
+    "18": {
         "title": "Sneakers",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing.",
         "price": 50,
@@ -47,5 +47,4 @@
         "page": "",
         "id": 6
     }
-    ]
 }

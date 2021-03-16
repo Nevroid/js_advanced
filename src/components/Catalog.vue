@@ -1,28 +1,12 @@
 <template>
   <div>
-    <div v-for="item in items_0">
-      <CatalogItem
-        class="product_mb product"
-        :goodTitle="item.title"
-        :goodPrice="item.price"
-        :goodDescription="item.description"
-        :goodImg="item.img"
-        :goodPage="item.page"
-        :goodId="item.id"
-      />
-    </div>
-    <div v-if="moreCounter > 0" v-for="item in items_1">
-      <CatalogItem
-        class="product_mb product"
-        :goodTitle="item.title"
-        :goodPrice="item.price"
-        :goodDescription="item.description"
-        :goodImg="item.img"
-        :goodPage="item.page"
-        :goodId="item.id"
-      />
-    </div>
-    <div @click="incrCounter">
+    <CatalogItem
+      class="product_mb product"
+      v-for="id in getItemsOnPage"
+      :key="id"
+      :id="id"
+    />
+    <div @click="incrCounter()">
       <MidButton :buttonText="expandButtonText" />
     </div>
   </div>
@@ -30,123 +14,32 @@
 
 <script>
 import CatalogItem from "./CatalogItem.vue";
-import MidButton from "./midButton.vue";
+import MidButton from "./MidButton.vue";
+import { mapMutations, mapGetters, mapActions } from "vuex";
 export default {
+  created() {
+    this.requestData(this.moreCounter);
+  },
   components: {
     CatalogItem,
     MidButton,
   },
   methods: {
+    ...mapMutations(["setData"]),
+    ...mapActions(["requestData"]),
     incrCounter() {
-      if (this.moreCounter < 1) {
+      if (this.moreCounter < 2) {
         this.moreCounter++;
       } else {
         this.moreCounter--;
       }
     },
   },
+  computed: {
+    ...mapGetters(["getData", "getItemsOnPage", "getTotalCost"]),
+  },
   data() {
     return {
-      items_0: [
-        {
-          title: "T-Shirt",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-          price: 88,
-          img: "./img/product_000.jpg",
-          page: "",
-          id: 1,
-        },
-        {
-          title: "Jeans",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-          price: 125,
-          img: "./img/product_001.jpg",
-          page: "",
-          id: 2,
-        },
-        {
-          title: "Sweater",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-          price: 75,
-          img: "./img/product_003.jpg",
-          page: "",
-          id: 3,
-        },
-        {
-          title: "Coat",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-          price: 200,
-          img: "./img/product_004.jpg",
-          page: "",
-          id: 4,
-        },
-        {
-          title: "Socks",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-          price: 5,
-          img: "./img/product_005.jpg",
-          page: "",
-          id: 5,
-        },
-        {
-          title: "Sneakers",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-          price: 50,
-          img: "./img/product_006.jpg",
-          page: "",
-          id: 6,
-        },
-      ],
-      items_1: [
-        {
-          title: "T-Shirt-2",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-          price: 88,
-          img: "./img/product_000.jpg",
-          page: "",
-          id: 7,
-        },
-        {
-          title: "Jeans-2",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-          price: 125,
-          img: "./img/product_001.jpg",
-          page: "",
-          id: 8,
-        },
-        {
-          title: "Sweater-2",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-          price: 75,
-          img: "./img/product_003.jpg",
-          page: "",
-          id: 9,
-        },
-        {
-          title: "Coat-2",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-          price: 200,
-          img: "./img/product_004.jpg",
-          page: "",
-          id: 10,
-        },
-        {
-          title: "Socks-2",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-          price: 5,
-          img: "./img/product_005.jpg",
-          page: "",
-          id: 11,
-        },
-        {
-          title: "Sneakers-2",
-          description: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-          price: 50,
-          img: "./img/product_006.jpg",
-          page: "",
-          id: 12,
-        },
-      ],
       moreCounter: 0,
       expandButtonText: "Show More",
     };

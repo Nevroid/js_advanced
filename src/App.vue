@@ -1,9 +1,19 @@
 <template>
-  <div>Hello from App.vue</div>
+  <Catalog class="product-content" />
 </template>
 
 <script>
-export default {};
+import Catalog from "./components/Catalog.vue";
+export default {
+  components: {
+    Catalog,
+  },
+  data() {
+    return {
+      someTestData: "test",
+    };
+  },
+};
 </script>
 
 <style>

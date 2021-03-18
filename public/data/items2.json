@@ -5,7 +5,8 @@
         "price": 88,
         "img": "./img/product_000.jpg",
         "page": "",
-        "id": 13
+        "id": 13,
+        "qnt": 0
     },
     "14": {
         "title": "Jeans-3",
@@ -13,7 +14,8 @@
         "price": 125,
         "img": "./img/product_001.jpg",
         "page": "",
-        "id": 14
+        "id": 14,
+        "qnt": 0
     },
     "15": {
         "title": "Sweater-3",
@@ -21,7 +23,8 @@
         "price": 75,
         "img": "./img/product_003.jpg",
         "page": "",
-        "id": 15
+        "id": 15,
+        "qnt": 0
     },
     "16": {
         "title": "Coat-3",
@@ -29,7 +32,8 @@
         "price": 200,
         "img": "./img/product_004.jpg",
         "page": "",
-        "id": 16
+        "id": 16,
+        "qnt": 0
     },
     "17": {
         "title": "Socks-3",
@@ -37,7 +41,8 @@
         "price": 5,
         "img": "./img/product_005.jpg",
         "page": "",
-        "id": 17
+        "id": 17,
+        "qnt": 0
     },
     "18": {
         "title": "Sneakers-3",
@@ -45,6 +50,7 @@
         "price": 50,
         "img": "./img/product_006.jpg",
         "page": "",
-        "id": 18
+        "id": 18,
+        "qnt": 0
     }
 }

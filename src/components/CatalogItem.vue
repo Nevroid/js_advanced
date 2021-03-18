@@ -7,7 +7,7 @@
         :src="getItemData.img"
         :alt="getItemData.title"
     /></a>
-    <div class="product__add" href="#">
+    <div @click="addItemToCart" class="product__add" href="#">
       <svg
         width="27"
         height="25"
@@ -27,7 +27,9 @@
         getItemData.title
       }}</a>
       <p class="product__text">{{ getItemData.description }}</p>
-      <div class="product__price">${{ getItemData.price }}</div>
+      <div class="product__price">
+        ${{ getItemData.price }} {{ getItemData.qnt }}
+      </div>
     </div>
   </div>
 </template>
@@ -35,15 +37,17 @@
 <script>
 import { mapMutations, mapGetters, mapActions } from "vuex";
 export default {
-  // created() {
-  //   this.requestData(this.getExpandCounter);
-  // },
   methods: {
-    ...mapMutations(["setData", "expandCounterIncr"]),
+    ...mapMutations(["setData", "expandCounterIncr", "setQnt", "setCartData"]),
     ...mapActions(["requestData"]),
+    addItemToCart() {
+      this.setQnt(this.id);
+      console.log(this.getData[this.id]);
+      this.setCartData(this.getData[this.id]);
+    },
   },
   computed: {
-    ...mapGetters(["getData", "getItemsOnPage", "getExpandCounter"]),
+    ...mapGetters(["getData", "getItemsOnPage"]),
     getItemData() {
       return this.getData[this.id];
     },

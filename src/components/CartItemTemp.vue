@@ -21,10 +21,14 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters, mapActions } from "vuex";
 export default {
   props: {
-    id: String,
+    goodTitle: String,
+    goodPrice: Number,
+    goodDescription: String,
+    goodImg: String,
+    goodPage: String,
+    goodId: Number,
   },
 };
 </script>

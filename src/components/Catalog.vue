@@ -12,6 +12,8 @@
       v-if="catalogCounter < 2"
       :buttonText="expandButtonText"
     />
+
+    <button @click="exeTest">Test</button>
   </div>
 </template>
 
@@ -29,38 +31,27 @@ export default {
       catalogCounter: 0,
     };
   },
-  // updated() {
-  //   this.requestData(getExpandCounter);
-  // },
+
   components: {
     CatalogItem,
     MidButton,
   },
   methods: {
-    ...mapMutations(["setData", "expandCounterIncr"]),
+    ...mapMutations(["setData"]),
     ...mapActions(["requestData"]),
     expandCatalog() {
       this.catalogCounter++;
       this.requestData(this.catalogCounter);
     },
+    exeTest() {
+      console.log(Object.keys(this.getData));
+    },
   },
   computed: {
-    ...mapGetters([
-      "getData",
-      "getItemsOnPage",
-      "getTotalCost",
-      "getExpandCounter",
-    ]),
+    ...mapGetters(["getData", "getItemsOnPage", "getTotalCost"]),
   },
 };
 </script>
 
 <style module>
-/* .carfghtalog {
-  color: blue;
-  padding-top: 48px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-} */
 </style>

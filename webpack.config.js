@@ -15,29 +15,61 @@ module.exports = {
 
     module: {
 
-        rules: [{
+        // rules: [{
+        //     test: /\.js$/,
+        //     use: [{
+        //         loader: 'babel-loader'
+        //     }, ], 
+        //     test: /\.css$/,
+        //     use: [{
+        //             loader: 'style-loader'
+        //         }, 
+        //         {
+        //             loader: 'vue-style-loader',
+        //         }, 
+        //         {
+        //             loader: 'css-loader',
+        //             options: {
+        //                 modules: true,
+        //             },
+        //         },
+
+        //     ],
+
+        //     test: /\.vue$/,
+        //     use: [{
+        //         loader: 'vue-loader'
+        //     }]
+
+        // }],
+        rules: [
+            {
             test: /\.js$/,
             use: [{
                 loader: 'babel-loader'
-            }, ],
-            test: /\.css$/,
+            }, ],}, 
+            {test: /\.css$/,
             use: [{
                     loader: 'style-loader'
-                }, {
+                }, 
+                {
+                    loader: 'vue-style-loader',
+                }, 
+                {
                     loader: 'css-loader',
                     options: {
                         modules: true,
                     },
                 },
 
-            ],
+            ],},
 
-            test: /\.vue$/,
+            {test: /\.vue$/,
             use: [{
                 loader: 'vue-loader'
-            }]
+            }]},
 
-        }],
+        ],
     },
 
 

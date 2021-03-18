@@ -1,5 +1,9 @@
 <template>
-  <div class="product-box_button center">
+  <div
+    :class="[$style.btntest]"
+    class="product-box_button center"
+    @click="$emit('clicked')"
+  >
     {{ buttonText }}
   </div>
 </template>
@@ -14,4 +18,7 @@ export default {
 
 
 <style module>
+.btntest {
+  color: yellowgreen;
+}
 </style>

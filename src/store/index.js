@@ -7,16 +7,14 @@ export default new Vuex.Store({
         data: {},
         itemsOnPage: [],
         itemsInCart: [],
-        expandCounter: 0,
+        
     },
     mutations: {
         setData (state, payload){
-            state.data = payload.newData
-            state.itemsOnPage = Object.keys(payload.newData)
+            state.data = {...state.data, ...payload.newData}
+            state.itemsOnPage.push(...Object.keys(payload.newData))
         },
-        expandCounterIncr(state){
-            state.expandCounter++
-        },
+        
     },
     getters: {
         getData: state => state.data,
@@ -25,11 +23,11 @@ export default new Vuex.Store({
             const keys = state.itemsOnPage
             return keys.reduce((result, current) => result + state.data[current].price, 0)
         },
-        getExpandCounter: state => state.expandCounter,
+        
     },
     actions: {
         requestData({commit}, page){
-            fetch(`/data/items${page}.json`)
+            fetch(`/catalogitemslist/${page}`, {method: 'GET'})
                 .then(res => {
                     return res.json();
                 })

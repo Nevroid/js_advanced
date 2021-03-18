@@ -1,28 +1,43 @@
 const fs = require('fs');
-const http = require('http');
+// const http = require('http');
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 8181;
 
+app.use(express.static('./public'));
 
-const server = http.createServer(function (request, response) {
-  console.log(`Запрошенный адрес: ${request.url}`)
-  try {
-    let filePath = './public' + request.url
-    if (fs.statSync(filePath).isDirectory()) {
-      filePath += '/index.html';
-    }
-    fs.access(filePath, fs.constants.R_OK, (err) => {
-      if (err) {
-        response.statusCode = 404
-        response.end('Resourse not found!')
-      } else {
-        fs.createReadStream(filePath).pipe(response)
-      }
-    })
-  } catch (err) {
-    console.log('Ошибка сервера')
-  }
-})
+app.listen(port, () => {
+  console.log(`Server started at port ${port}`)
+});
 
-const port = process.env.PORT || 8181
-server.listen(port);
+app.get('/catalogitemslist/:pagenum', (req, res) => {
+  const pagenum = req.params.pagenum;
+  fs.readFile(`./public/data/items${pagenum}.json`, 'utf8', (err, data) => {
+    res.send(data);
+  })
+});
 
-console.log(`Server started on port ${port}`);
+// const server = http.createServer(function (request, response) {
+//   console.log(`Запрошенный адрес: ${request.url}`)
+//   try {
+//     let filePath = './public' + request.url
+//     if (fs.statSync(filePath).isDirectory()) {
+//       filePath += '/index.html';
+//     }
+//     fs.access(filePath, fs.constants.R_OK, (err) => {
+//       if (err) {
+//         response.statusCode = 404
+//         response.end('Resourse not found!')
+//       } else {
+//         fs.createReadStream(filePath).pipe(response)
+//       }
+//     })
+//   } catch (err) {
+//     console.log('Ошибка сервера')
+//   }
+// })
+
+// const port = process.env.PORT || 8181
+// server.listen(port);
+
+// console.log(`Server started on port ${port}`);

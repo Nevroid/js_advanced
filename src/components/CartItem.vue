@@ -1,20 +1,31 @@
 <template>
   <div>
-    <a :href="goodPage">
-      <img class="product__img" :src="goodImg" :alt="goodTitle" />
+    <a :href="getCartItemData.page">
+      <img
+        class="product__img"
+        :src="getCartItemData.img"
+        :alt="getCartItemData.title"
+      />
     </a>
     <div class="product__info">
-      <a :href="goodPage" class="product__name">{{ goodTitle }}</a>
-      <p class="product__text">{{ goodDescription }}</p>
+      <a :href="getCartItemData.page" class="product__name">{{
+        getCartItemData.page
+      }}</a>
+      <p class="product__text">{{ getCartItemData.description }}</p>
       <div class="product__price">
-        $<span :id="goodId + 'p'" class="product__price price-calc">{{
-          goodPrice
-        }}</span>
+        $<span
+          :id="getCartItemData.id + 'p'"
+          class="product__price price-calc"
+          >{{ getCartItemData.price }}</span
+        >
       </div>
       <div class="product__price">
-        <span class="decrQnt" :id="goodId + 'decrQnt'"> - </span>Quantity:
-        <span :id="goodId + 'q'" class="qnt-calc">${this._qnt}</span
-        ><span class="incrQnt" :id="goodId + 'incrQnt'"> + </span>
+        <span class="decrQnt" :id="getCartItemData.id + 'decrQnt'"> - </span
+        >Quantity:
+        <span :id="getCartItemData.id + 'q'" class="qnt-calc">{{
+          getCartItemData.qnt
+        }}</span
+        ><span class="incrQnt" :id="getCartItemData.id + 'incrQnt'"> + </span>
       </div>
     </div>
   </div>
@@ -25,6 +36,12 @@ import { mapMutations, mapGetters, mapActions } from "vuex";
 export default {
   props: {
     id: String,
+  },
+  computed: {
+    ...mapGetters(["getCartData", "getItemsInCart"]),
+    getCartItemData() {
+      return this.getCartData[this.id];
+    },
   },
 };
 </script>

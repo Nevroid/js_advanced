@@ -15,9 +15,16 @@ export default new Vuex.Store({
             state.data = {...state.data, ...payload.newData}
             state.itemsOnPage.push(...Object.keys(payload.newData))
         },
+        
         setCartData (state, payload){
-            state.cartData = {...state.cartData, ...payload.newData}
-            state.itemsInCart.push(...Object.keys(payload.newData))
+            
+            let newCartObj = {};
+            newCartObj[payload.id] = {};
+            newCartObj[payload.id] = payload;
+
+            state.cartData = {...state.cartData, ...newCartObj}
+            state.itemsInCart.push(...Object.keys(newCartObj))
+            
         },
         setQnt (state, payload) {
             state.data[payload].qnt++
@@ -28,6 +35,7 @@ export default new Vuex.Store({
     },
     getters: {
         getData: state => state.data,
+        getCartData: state => state.cartData,
         getItemsOnPage: state => state.itemsOnPage,
         getItemsInCart: state => state.itemsInCart,
         getTotalCost: state => {

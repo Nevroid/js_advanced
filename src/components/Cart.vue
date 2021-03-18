@@ -16,30 +16,21 @@
 import { mapMutations, mapGetters, mapActions } from "vuex";
 import CartItem from "./CartItem.vue";
 export default {
-  created() {
-    this.requestData(this.catalogCounter);
-  },
-  data() {
-    return {};
-  },
-
   components: {
     CartItem,
   },
   methods: {
     ...mapMutations(["setData"]),
     ...mapActions(["requestData"]),
-    expandCatalog() {
-      this.catalogCounter++;
-      this.requestData(this.catalogCounter);
-    },
   },
+
   computed: {
     ...mapGetters([
       "getData",
       "getItemsOnPage",
       "getTotalCost",
       "getItemsInCart",
+      "getCartData",
     ]),
   },
 };

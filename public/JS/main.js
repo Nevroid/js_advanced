@@ -145,27 +145,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  created() {
-    this.requestData(this.catalogCounter);
-  },
-
-  data() {
-    return {};
-  },
-
   components: {
     CartItem: _CartItem_vue__WEBPACK_IMPORTED_MODULE_0__.default
   },
   methods: { ...(0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapMutations)(["setData"]),
-    ...(0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)(["requestData"]),
-
-    expandCatalog() {
-      this.catalogCounter++;
-      this.requestData(this.catalogCounter);
-    }
-
+    ...(0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)(["requestData"])
   },
-  computed: { ...(0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)(["getData", "getItemsOnPage", "getTotalCost", "getItemsInCart"])
+  computed: { ...(0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)(["getData", "getItemsOnPage", "getTotalCost", "getItemsInCart", "getCartData"])
   }
 });
 
@@ -182,6 +168,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -208,6 +206,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     id: String
+  },
+  computed: { ...(0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["getCartData", "getItemsInCart"]),
+
+    getCartItemData() {
+      return this.getCartData[this.id];
+    }
+
   }
 });
 
@@ -13659,10 +13664,15 @@ vue__WEBPACK_IMPORTED_MODULE_0___default().use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
 
     setCartData(state, payload) {
+      let newCartObj = {};
+      newCartObj[payload.id] = {};
+      newCartObj[payload.id] = payload;
+      console.log(newCartObj);
+      console.log(payload);
       state.cartData = { ...state.cartData,
-        ...payload.newData
+        ...newCartObj
       };
-      state.itemsInCart.push(...Object.keys(payload.newData));
+      state.itemsInCart.push(...Object.keys(newCartObj));
     },
 
     setQnt(state, payload) {
@@ -13672,6 +13682,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default().use(vuex__WEBPACK_IMPORTED_MODULE_1__
   },
   getters: {
     getData: state => state.data,
+    getCartData: state => state.cartData,
     getItemsOnPage: state => state.itemsOnPage,
     getItemsInCart: state => state.itemsInCart,
     getTotalCost: state => {
@@ -14599,20 +14610,25 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("a", { attrs: { href: _vm.goodPage } }, [
+    _c("a", { attrs: { href: _vm.getCartItemData.page } }, [
       _c("img", {
         staticClass: "product__img",
-        attrs: { src: _vm.goodImg, alt: _vm.goodTitle }
+        attrs: { src: _vm.getCartItemData.img, alt: _vm.getCartItemData.title }
       })
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "product__info" }, [
-      _c("a", { staticClass: "product__name", attrs: { href: _vm.goodPage } }, [
-        _vm._v(_vm._s(_vm.goodTitle))
-      ]),
+      _c(
+        "a",
+        {
+          staticClass: "product__name",
+          attrs: { href: _vm.getCartItemData.page }
+        },
+        [_vm._v(_vm._s(_vm.getCartItemData.page))]
+      ),
       _vm._v(" "),
       _c("p", { staticClass: "product__text" }, [
-        _vm._v(_vm._s(_vm.goodDescription))
+        _vm._v(_vm._s(_vm.getCartItemData.description))
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "product__price" }, [
@@ -14621,27 +14637,36 @@ var render = function() {
           "span",
           {
             staticClass: "product__price price-calc",
-            attrs: { id: _vm.goodId + "p" }
+            attrs: { id: _vm.getCartItemData.id + "p" }
           },
-          [_vm._v(_vm._s(_vm.goodPrice))]
+          [_vm._v(_vm._s(_vm.getCartItemData.price))]
         )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "product__price" }, [
         _c(
           "span",
-          { staticClass: "decrQnt", attrs: { id: _vm.goodId + "decrQnt" } },
+          {
+            staticClass: "decrQnt",
+            attrs: { id: _vm.getCartItemData.id + "decrQnt" }
+          },
           [_vm._v(" - ")]
         ),
         _vm._v("Quantity:\n      "),
         _c(
           "span",
-          { staticClass: "qnt-calc", attrs: { id: _vm.goodId + "q" } },
-          [_vm._v("${this._qnt}")]
+          {
+            staticClass: "qnt-calc",
+            attrs: { id: _vm.getCartItemData.id + "q" }
+          },
+          [_vm._v(_vm._s(_vm.getCartItemData.qnt))]
         ),
         _c(
           "span",
-          { staticClass: "incrQnt", attrs: { id: _vm.goodId + "incrQnt" } },
+          {
+            staticClass: "incrQnt",
+            attrs: { id: _vm.getCartItemData.id + "incrQnt" }
+          },
           [_vm._v(" + ")]
         )
       ])

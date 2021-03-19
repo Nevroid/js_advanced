@@ -9,7 +9,7 @@
     </a>
     <div class="product__info">
       <a :href="getCartItemData.page" class="product__name">{{
-        getCartItemData.page
+        getCartItemData.title
       }}</a>
       <p class="product__text">{{ getCartItemData.description }}</p>
       <div class="product__price">
@@ -22,9 +22,11 @@
       <div class="product__price">
         <span class="decrQnt" :id="getCartItemData.id + 'decrQnt'"> - </span
         >Quantity:
-        <span :id="getCartItemData.id + 'q'" class="qnt-calc">{{
-          getCartItemData.qnt
-        }}</span
+        <span
+          @click="incrQnt"
+          :id="getCartItemData.id + 'q'"
+          class="qnt-calc"
+          >{{ getCartItemData.qnt }}</span
         ><span class="incrQnt" :id="getCartItemData.id + 'incrQnt'"> + </span>
       </div>
     </div>
@@ -37,7 +39,9 @@ export default {
   props: {
     id: String,
   },
-  methods: {},
+  methods: {
+    incrQnt() {},
+  },
   computed: {
     ...mapGetters(["getCartData", "getItemsInCart"]),
     getCartItemData() {

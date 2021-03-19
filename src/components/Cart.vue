@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-top: 40px">
     <h3>Customer Cart</h3>
     <div class="product__usercart">
       <CartItem

@@ -229,12 +229,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     id: String
   },
-  methods: {},
+  methods: {
+    incrQnt() {}
+
+  },
   computed: { ...(0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["getCartData", "getItemsInCart"]),
 
     getCartItemData() {
@@ -367,13 +372,17 @@ __webpack_require__.r(__webpack_exports__);
     ...(0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)(["requestData"]),
 
     addItemToCart() {
-      this.setQnt(this.id);
-      console.log(this.getData[this.id]);
-      this.setCartData(this.getData[this.id]);
+      if (this.getItemsInCart.includes(this.id)) {
+        this.setQnt(this.id);
+      } else {
+        this.setQnt(this.id);
+        console.log(this.getData[this.id]);
+        this.setCartData(this.getData[this.id]);
+      }
     }
 
   },
-  computed: { ...(0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["getData", "getItemsOnPage"]),
+  computed: { ...(0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["getData", "getItemsOnPage", "getItemsInCart"]),
 
     getItemData() {
       return this.getData[this.id];
@@ -14855,7 +14864,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticStyle: { "margin-top": "40px" } }, [
     _c("h3", [_vm._v("Customer Cart")]),
     _vm._v(" "),
     _c(
@@ -14927,7 +14936,7 @@ var render = function() {
           staticClass: "product__name",
           attrs: { href: _vm.getCartItemData.page }
         },
-        [_vm._v(_vm._s(_vm.getCartItemData.page))]
+        [_vm._v(_vm._s(_vm.getCartItemData.title))]
       ),
       _vm._v(" "),
       _c("p", { staticClass: "product__text" }, [
@@ -14960,7 +14969,8 @@ var render = function() {
           "span",
           {
             staticClass: "qnt-calc",
-            attrs: { id: _vm.getCartItemData.id + "q" }
+            attrs: { id: _vm.getCartItemData.id + "q" },
+            on: { click: _vm.incrQnt }
           },
           [_vm._v(_vm._s(_vm.getCartItemData.qnt))]
         ),

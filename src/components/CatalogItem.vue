@@ -39,13 +39,17 @@ export default {
     ...mapMutations(["setData", "expandCounterIncr", "setQnt", "setCartData"]),
     ...mapActions(["requestData"]),
     addItemToCart() {
-      this.setQnt(this.id);
-      console.log(this.getData[this.id]);
-      this.setCartData(this.getData[this.id]);
+      if (this.getItemsInCart.includes(this.id)) {
+        this.setQnt(this.id);
+      } else {
+        this.setQnt(this.id);
+        console.log(this.getData[this.id]);
+        this.setCartData(this.getData[this.id]);
+      }
     },
   },
   computed: {
-    ...mapGetters(["getData", "getItemsOnPage"]),
+    ...mapGetters(["getData", "getItemsOnPage", "getItemsInCart"]),
     getItemData() {
       return this.getData[this.id];
     },

@@ -9,19 +9,38 @@
         :id="id"
       />
     </div>
+    <div style="display: flex" :class="[$style.btnblock]">
+      <MidButton @clicked="formData">Save CART</MidButton>
+      <br />
+      <MidButton @clicked="emptyCart">Empty CART</MidButton>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapMutations, mapGetters, mapActions } from "vuex";
 import CartItem from "./CartItem.vue";
+import MidButton from "./MidButton.vue";
 export default {
+  created() {
+    this.requestCartData();
+  },
   components: {
     CartItem,
+    MidButton,
   },
   methods: {
-    ...mapMutations(["setData"]),
-    ...mapActions(["requestData"]),
+    ...mapMutations(["setData", "deleteCartData"]),
+    ...mapActions(["requestData", "sendDataToFile", "requestCartData"]),
+    formData() {
+      const dataToSend = this.getCartData;
+      console.log(dataToSend);
+      this.sendDataToFile(dataToSend);
+    },
+    emptyCart() {
+      this.deleteCartData();
+      this.formData();
+    },
   },
 
   computed: {
@@ -37,4 +56,7 @@ export default {
 </script>
 
 <style module>
+.btnblock {
+  display: flex;
+}
 </style>

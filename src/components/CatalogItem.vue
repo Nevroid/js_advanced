@@ -27,9 +27,7 @@
         getItemData.title
       }}</a>
       <p class="product__text">{{ getItemData.description }}</p>
-      <div class="product__price">
-        ${{ getItemData.price }} {{ getItemData.qnt }}
-      </div>
+      <div class="product__price">${{ getItemData.price }}</div>
     </div>
   </div>
 </template>

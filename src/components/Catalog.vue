@@ -12,8 +12,6 @@
       v-if="catalogCounter < 2"
       :buttonText="expandButtonText"
     />
-
-    <button @click="exeTest">Test</button>
   </div>
 </template>
 

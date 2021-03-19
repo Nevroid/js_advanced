@@ -37,6 +37,7 @@ export default {
   props: {
     id: String,
   },
+  methods: {},
   computed: {
     ...mapGetters(["getCartData", "getItemsInCart"]),
     getCartItemData() {

@@ -4,7 +4,7 @@
     class="product-box_button center"
     @click="$emit('clicked')"
   >
-    {{ buttonText }}
+    <slot>{{ buttonText }}</slot>
   </div>
 </template>
 

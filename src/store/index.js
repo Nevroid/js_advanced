@@ -24,7 +24,17 @@ export default new Vuex.Store({
 
             state.cartData = {...state.cartData, ...newCartObj}
             state.itemsInCart.push(...Object.keys(newCartObj))
-            
+        },
+        setInitialCartData(state, payload) {
+            state.cartData = payload.newData;
+            state.itemsInCart.push(...Object.keys(payload.newData));
+
+        },                  
+        
+        deleteCartData (state) {
+            state.cartData = {};
+            state.itemsInCart = [];
+
         },
         setQnt (state, payload) {
             state.data[payload].qnt++
@@ -54,7 +64,30 @@ export default new Vuex.Store({
                 .then(res =>{
                     commit('setData', {newData: res })
                 })
-        }
+        },
+        requestCartData({commit}) {
+            fetch(`/cartitemslist`, {method: 'GET'})
+            .then(res => {
+                return res.json();
+            })
+            .then(res =>{
+                commit('setInitialCartData', {newData: res })
+            })
+        },
+        sendDataToFile ({}, data) {
+            fetch ('/usercartfile', {
+                method: 'POST', 
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }})
+                // .then(res => {
+                //     return res.json();
+                // })
+                .then(res =>{
+                    console.log(`indexJS res: ${res}`);
+                })
+        },
 
     },
     
